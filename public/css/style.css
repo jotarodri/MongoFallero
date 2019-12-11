@@ -1,0 +1,12 @@
+#resultado{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,400px);
+    grid-gap: 50px;
+}
+
+img{
+
+    width: 350px;
+    height: 400px;
+}
