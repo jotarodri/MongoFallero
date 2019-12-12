@@ -2,7 +2,15 @@
     margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(3,400px);
-    grid-gap: 50px;
+    grid-gap: 100px;
+    
+}
+
+.falla{
+   
+    margin-left: 10%;
+    border: 3px solid black;
+    
 }
 
 img{
