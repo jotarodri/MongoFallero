@@ -73,6 +73,7 @@ function asignarFalla() {
     
 tipoFalla=this.value;
 //console.log(tipoFalla);
+anyadirSeccionesPrincipales();
 buscarResultados();
 
 }
@@ -80,33 +81,47 @@ buscarResultados();
 function asignarSeccion() {
     
     seccion=this.value;
-    console.log(seccion);
+    //console.log(seccion);
     buscarResultados();
 }
 
-function anyadirSecciones() {
+function anyadirSeccionesPrincipales() {
 
     fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
     .then(function(response) {
         return response.json();
     })
     .then(function(myJson) {
-     
+     if (tipoFalla == "Principal") {
+        myJson.features.forEach(falla => {
+           
+            arraySecciones.add(falla.properties.seccion);
+
+        });    
+     }else if (tipoFalla == "Infantil") {
+        myJson.features.forEach(falla => {
+           
+            arraySecciones.add(falla.properties.seccion_i);
+
+        });   
+     }/*else{
         myJson.features.forEach(falla => {
             
             arraySecciones.add(falla.properties.seccion);
 
         });   
+     }*/
+        
 
-let arraySeccionesOrdenadas = [];
-arraySecciones.forEach(seccion => {
+    let arraySeccionesOrdenadas = [];
+    arraySecciones.forEach(seccion => {
     
     arraySeccionesOrdenadas.push(seccion);
     
 });
 
 arraySeccionesOrdenadas.sort();
-console.log(arraySeccionesOrdenadas);
+//console.log(arraySeccionesOrdenadas);
 
 
         let select = document.getElementsByClassName("seccionFalla")[0];
@@ -121,7 +136,7 @@ console.log(arraySeccionesOrdenadas);
 }
 
 function init() {
-    anyadirSecciones();
+    //anyadirSeccionesPrincipales();
    
     
     let radios = document.querySelectorAll('input[type="radio"]');
