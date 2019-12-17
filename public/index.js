@@ -50,10 +50,10 @@ fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
             imagenFalla = falla.properties.boceto;
         }
             
-
+        div.innerHTML = nombreFalla;
         imagen.src = imagenFalla;
         
-        div.innerHTML = nombreFalla;
+        
         div.appendChild(imagen);
         
         resultado.appendChild(div);
@@ -104,7 +104,9 @@ function anyadirSeccionesPrincipales() {
             arraySecciones.add(falla.properties.seccion_i);
 
         });   
-     }/*else{
+     }
+     
+     /*else{
         myJson.features.forEach(falla => {
             
             arraySecciones.add(falla.properties.seccion);
@@ -138,7 +140,6 @@ arraySeccionesOrdenadas.sort();
 function init() {
     //anyadirSeccionesPrincipales();
    
-    
     let radios = document.querySelectorAll('input[type="radio"]');
     for (let i = 0; i < radios.length; i++) {
         radios[i].addEventListener("click",asignarFalla);
@@ -147,9 +148,9 @@ function init() {
     let seleccion = document.getElementsByClassName("seccionFalla")[0];
     seleccion.addEventListener("click",asignarSeccion);
 
-   // buscarResultados();
+   //buscarResultados();
 
-   // document.querySelector('input[type="button"]').addEventListener("click",buscarResultados);
+   //document.querySelector('input[type="button"]').addEventListener("click",buscarResultados);
 }
 
 window.onload = init;
