@@ -23,23 +23,15 @@ fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
     console.log(myJson);
     
         const filtro = myJson.features.filter(filtrarFalla);
-    
-    
-    
+ 
     filtro.forEach(falla => {
-        
         
         let nombreFalla = falla.properties.nombre;
         
-        
-
         let div = document.createElement("div");
         div.classList.add("falla");
         let imagen = document.createElement("img");
-
-        
-       
-        
+    
         let imagenFalla;
 
         if (tipoFalla == "Principal") {
@@ -51,14 +43,25 @@ fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
         }
             
         div.innerHTML = nombreFalla;
+        div.classList.add("falla");
         imagen.src = imagenFalla;
         
-        
+        let divEstrellas = document.createElement("div");
+        divEstrellas.classList.add("valoracion");
+
+        for (let i = 0; i < 5; i++) {
+            let estrella = document.createElement("button");
+            let i = document.createElement("i");
+            i.innerHTML = "★";
+            estrella.appendChild(i);
+            divEstrellas.appendChild(estrella);
+            
+        }
+     
         div.appendChild(imagen);
-        
+        div.appendChild(divEstrellas);
         resultado.appendChild(div);
-        
-    
+
     
     });
  
@@ -87,18 +90,28 @@ function asignarSeccion() {
 
 function anyadirSeccionesPrincipales() {
 
+    let select = document.getElementsByClassName("seccionFalla")[0];
+
     fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
     .then(function(response) {
         return response.json();
     })
     .then(function(myJson) {
-     if (tipoFalla == "Principal") {
+     
+        if (tipoFalla == "Principal") {
+        
+        select.innerHTML = "";
+        arraySecciones.clear();
         myJson.features.forEach(falla => {
            
             arraySecciones.add(falla.properties.seccion);
 
         });    
-     }else if (tipoFalla == "Infantil") {
+
+        } else if (tipoFalla == "Infantil") {
+
+        select.innerHTML = "";
+        arraySecciones.clear();
         myJson.features.forEach(falla => {
            
             arraySecciones.add(falla.properties.seccion_i);
@@ -120,14 +133,11 @@ function anyadirSeccionesPrincipales() {
     
     arraySeccionesOrdenadas.push(seccion);
     
-});
+    });
 
 arraySeccionesOrdenadas.sort();
 //console.log(arraySeccionesOrdenadas);
-
-
-        let select = document.getElementsByClassName("seccionFalla")[0];
-        
+     
         arraySeccionesOrdenadas.forEach(seccion => {
             let option = document.createElement("option");
             option.text= seccion;
