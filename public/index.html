@@ -11,6 +11,14 @@
     <h1>Fallas de la ciudad de Valencia</h1>
     <div class="buscar">
         <form class="busqueda">
+            <h2> Elige el tipo de falla </h2>
+                <input type="radio" value="Principal" class="radioB" name="1">   Principal
+                <br>
+                <br>
+                <input type="radio" value="Infantil" class="radioB" name="1">   Infantil
+                <br>
+                <br>
+
             <h2>Sección</h2>
             <select value="Seccion" class="seccionFalla">
 
@@ -23,20 +31,15 @@
                 <br>
                 
                 <h2>Año fundación</h2>
-
-                Desde  <input type="text">
-                Hasta  <input type="text">
-
+<p>
+                Desde  <input type="text" id="desde">
+                Hasta  <input type="text" id="hasta">
+              <alerta>El año de fundación debe ser menor que el año actual!</alerta>
                 <br>
                 <br>
-
+            </p>
                 <h2>Tipo Falla</h2>
-            <input type="radio" value="Principal" class="radioB" name="1">   Principal
-            <br>
-            <br>
-            <input type="radio" value="Infantil" class="radioB" name="1">   Infantil
-            <br>
-            <br>
+      
             <!--<input type="button" value="Mostrar Fallas" class="botonBuscar">-->
             
         </form>
