@@ -1,0 +1,98 @@
+:root {
+  --color-inactivo: #5f5050;
+  //--color-hover: #ffa400;
+  --color-hover: lightcyan;
+}
+
+
+body{
+    background-color: lightcyan;
+}
+
+
+
+#resultado{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,455px);
+    grid-gap: 100px;
+    
+}
+
+.falla{
+    
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10%;
+    border: 3px solid black;
+    box-shadow: 10px 10px 5px 6px rgba(0,0,0,0.75);
+    background-color: lightcoral;
+    text-align: center;
+    height: 580px;
+
+}
+alerta{
+  color: red;
+  visibility: hidden;
+}
+
+.visible{
+
+  visibility: visible;
+}
+img{
+
+    width: 350px;
+    height: 400px;
+    margin-top: 5%;
+}
+
+select{
+ width: 100%;
+ height: 30px;
+ 
+}
+
+.clasificacion {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 2%;
+  margin-right: 37%; 
+  }
+
+
+  #form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  #form p {
+    text-align: center;
+  }
+  
+  #form label {
+    font-size: 20px;
+  }
+  
+  /*.valoracion {
+    display: none;
+  }*/
+  
+  label {
+    color:black;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input:checked ~ label {
+    color: orange;
+  }
