@@ -54,71 +54,77 @@ fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
             div.classList.add("falla");
             imagen.src = imagenFalla;
             
-            let divEstrellas = document.createElement("div");
-            divEstrellas.classList.add("valoracion");
+            let divValoracion = document.createElement("div");
+            let formulario = document.createElement("form");
+            let p = document.createElement("p");
+            p.classList.add("clasificacion");
     
             for (let i = 0; i < 5; i++) {
-                let estrella = document.createElement("input");
-                
-                
-                let star = document.createElement("label");
-                star.innerHTML = "★";
-                star.classList.add("i");
-                console.log(star);
-        
-                estrella.appendChild(star);
-                divEstrellas.appendChild(estrella);
-                
+
+            let input = document.createElement("input");
+            input.setAttribute("id","radio"+i);
+            input.setAttribute("type","radio");
+            input.setAttribute("name","estrellas");
+            input.setAttribute("value", i.toString());
+            
+            let estrella = document.createElement("label");
+            estrella.innerHTML = "★";
+            estrella.setAttribute("for","radio"+i);
+            
+              input.appendChild(estrella);
+              p.appendChild(input);
             }
-         
+
+            formulario.appendChild(p);
+            divValoracion.appendChild(formulario);
+
             div.appendChild(imagen);
-            div.appendChild(divEstrellas);
             div.appendChild(boton);
             resultado.appendChild(div);
         }
             
 
-        if (anyoDesde === undefined || anyoHasta === undefined) {
-                div.innerHTML = nombreFalla;
+        if ((anyoDesde === undefined || anyoHasta === undefined)||(anyoDesde == "" || anyoHasta === "")) {
+               
+            div.innerHTML = nombreFalla;
                 div.classList.add("falla");
                 imagen.src = imagenFalla;
                 
-        let boton = document.createElement("button");
+      /*  let boton = document.createElement("button");
         
-        boton.innerText="Mostrar Ubicación";
+        boton.innerText="Mostrar Ubicación";*/
         
-                let divEstrellas = document.createElement("form");
-                let p = document.createElement("p");
-                p.classList.add("clasificacion");
+        let formulario = document.createElement("form");
+    //formulario.setAttribute('method', "post");
+    //formulario.setAttribute('action', "submit.php");
+    let inputHidden = document.createElement("input");
+    inputHidden.setAttribute('type', 'hidden');
+   // inputHidden.value = myJson.properties.id;
 
-                for (let i = 0; i < 5; i++) {
+    formulario.appendChild(inputHidden);
 
-                 let input = document.createElement("input");
-                 input.classList.add("valoracion");
-                 input.type = "radio";
-                 input.value = i ;
-                 
-                 let label = document.createElement("label");
-                 label.innerHTML = "★";
-                  
-                 input.appendChild(label);
-                 p.appendChild(input);
-                 divEstrellas.appendChild(p);
-                }
-             
-                div.appendChild(imagen);
-                div.appendChild(divEstrellas);
-                div.appendChild(boton);
-                resultado.appendChild(div);
-            }
+    let p = document.createElement("p");
+p.classList.add("clasificacion");
+    for (let i = 1; i <= 5; i++) {
+
+        let labelEstrella = document.createElement("label");
+        labelEstrella.innerHTML = "✦";
+        formulario.appendChild(labelEstrella);
+
+    }
+
+    p.appendChild(formulario);
+    div.appendChild(p);
+
+
+        div.appendChild(imagen);
+        //div.appendChild(boton);
+        resultado.appendChild(div);
+    
+    }
            
-        
-
     });
  
-//tipoFalla = "";
-
-//console.log(arraySecciones);
 });
 
 }

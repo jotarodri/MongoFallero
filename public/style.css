@@ -9,7 +9,7 @@ body {
   margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(3, 455px);
-  grid-gap: 100px; }
+  grid-gap: 90px; }
 
 .falla {
   font-size: 25px;
@@ -37,29 +37,20 @@ select {
   width: 100%;
   height: 30px; }
 
-.clasificacion {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-top: 2%;
-  margin-right: 37%; }
-
 #form {
   width: 250px;
   margin: 0 auto;
   height: 50px; }
+  #form p {
+    text-align: center; }
+  #form label {
+    font-size: 20px;
+    color: grey; }
 
-#form p {
-  text-align: center; }
-
-#form label {
-  font-size: 20px; }
-
-/*.valoracion {
+/*
+input[type="radio"] {
   display: none;
 }*/
-label {
-  color: black; }
-
 .clasificacion {
   direction: rtl;
   unicode-bidi: bidi-override; }
@@ -68,7 +59,7 @@ label:hover,
 label:hover ~ label {
   color: orange; }
 
-input:checked ~ label {
+input[type="radio"]:checked ~ label {
   color: orange; }
 
 /*# sourceMappingURL=style.css.map */

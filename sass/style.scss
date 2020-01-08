@@ -15,7 +15,7 @@ body{
     margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(3,455px);
-    grid-gap: 100px;
+    grid-gap: 90px;
     
 }
 
@@ -53,46 +53,38 @@ select{
  
 }
 
-.clasificacion {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-top: 2%;
-  margin-right: 37%; 
-  }
-
-
-  #form {
-    width: 250px;
-    margin: 0 auto;
-    height: 50px;
-  }
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
   
-  #form p {
+  p {
     text-align: center;
+    
   }
-  
-  #form label {
-    font-size: 20px;
-  }
-  
-  /*.valoracion {
-    display: none;
-  }*/
-  
   label {
-    color:black;
+    font-size: 20px;
+    color: grey;
+   
   }
-  
-  .clasificacion {
-    direction: rtl;
-    unicode-bidi: bidi-override;
-  }
-  
-  label:hover,
-  label:hover ~ label {
-    color: orange;
-  }
-  
-  input:checked ~ label {
-    color: orange;
-  }
+
+}
+/*
+input[type="radio"] {
+  display: none;
+}*/
+
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
