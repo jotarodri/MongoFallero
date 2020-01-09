@@ -1,6 +1,5 @@
 :root {
   --color-inactivo: #5f5050;
-  //--color-hover: #ffa400;
   --color-hover: lightcyan;
 }
 
@@ -31,6 +30,11 @@ body{
     height: 580px;
 
 }
+
+button{
+  margin-bottom: 15%;
+}
+
 alerta{
   color: red;
   visibility: hidden;
@@ -45,9 +49,11 @@ img{
     width: 350px;
     height: 400px;
     margin-top: 5%;
+    
 }
 
 select{
+
  width: 100%;
  height: 30px;
  
@@ -59,6 +65,7 @@ select{
   height: 50px;
   
   p {
+
     text-align: center;
     
   }
@@ -69,11 +76,6 @@ select{
   }
 
 }
-/*
-input[type="radio"] {
-  display: none;
-}*/
-
 
 .clasificacion {
   direction: rtl;
@@ -85,6 +87,7 @@ label:hover ~ label {
   color: orange;
 }
 
-input[type="radio"]:checked ~ label {
+.pulsado,
+.pulsado ~ label{
   color: orange;
 }

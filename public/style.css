@@ -21,6 +21,9 @@ body {
   text-align: center;
   height: 580px; }
 
+button {
+  margin-bottom: 15%; }
+
 alerta {
   color: red;
   visibility: hidden; }
@@ -47,10 +50,6 @@ select {
     font-size: 20px;
     color: grey; }
 
-/*
-input[type="radio"] {
-  display: none;
-}*/
 .clasificacion {
   direction: rtl;
   unicode-bidi: bidi-override; }
@@ -59,7 +58,8 @@ label:hover,
 label:hover ~ label {
   color: orange; }
 
-input[type="radio"]:checked ~ label {
+.pulsado,
+.pulsado ~ label {
   color: orange; }
 
 /*# sourceMappingURL=style.css.map */

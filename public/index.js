@@ -90,35 +90,35 @@ fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
                 div.classList.add("falla");
                 imagen.src = imagenFalla;
                 
-      /*  let boton = document.createElement("button");
+        let boton = document.createElement("button");
         
-        boton.innerText="Mostrar Ubicación";*/
+        boton.innerText="Mostrar Ubicación";
         
         let formulario = document.createElement("form");
-    //formulario.setAttribute('method', "post");
-    //formulario.setAttribute('action', "submit.php");
-    let inputHidden = document.createElement("input");
-    inputHidden.setAttribute('type', 'hidden');
-   // inputHidden.value = myJson.properties.id;
-
-    formulario.appendChild(inputHidden);
+        formulario.method = "POST";
+    
 
     let p = document.createElement("p");
-p.classList.add("clasificacion");
-    for (let i = 1; i <= 5; i++) {
+    p.classList.add("clasificacion");
+
+    let inputHidden = document.createElement("input");
+    inputHidden.setAttribute('type', 'radio');
+
+    for (let i = 5; i >= 1; i--) {
 
         let labelEstrella = document.createElement("label");
-        labelEstrella.innerHTML = "✦";
+        labelEstrella.innerHTML = "★";
+        labelEstrella.addEventListener("click",establecerPuntuacion);
+        labelEstrella.value = i;
         formulario.appendChild(labelEstrella);
 
     }
 
     p.appendChild(formulario);
-    div.appendChild(p);
-
 
         div.appendChild(imagen);
-        //div.appendChild(boton);
+        div.appendChild(p);
+        div.appendChild(boton);
         resultado.appendChild(div);
     
     }
@@ -202,10 +202,13 @@ fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
             divEstrellas.classList.add("valoracion");
     
             for (let i = 5; i < 0; i--) {
+
                 let estrella = document.createElement("button");
-                let i = document.createElement("i");
-                i.innerHTML = "★";
-                estrella.appendChild(i);
+                let star = document.createElement("i");
+                star.innerHTML = "★";
+                star.value = i;
+                star.addEventListener("click",establecerPuntuacion);
+                estrella.appendChild(star);
                 divEstrellas.appendChild(estrella);
                 
             }
@@ -332,10 +335,8 @@ function comparar(a,b){return a - b}
 
 function establecerPuntuacion() {
     
-//let puntuancion = this.classList;
 this.classList.add("pulsado");
-this.disabled = true;
-console.log(this.classList.value);
+console.log(this.value);
 
 }
 
