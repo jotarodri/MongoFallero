@@ -1,9 +1,13 @@
+
+//import { create } from "../app/controllers/puntuacion.controller";
+
 let arraySecciones = new Set;
 let tipoFalla;
 let seccion;
 let todas;
 let anyoDesde;
 let anyoHasta;
+let ipFalla;
 
 function filtrarFalla(cadena) {
     let valorTexto = document.querySelector('select').value;
@@ -41,6 +45,7 @@ fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
     
         let imagenFalla;
         let anyoFalla;
+        ipFalla = falla.properties.id;
 
         let boton = document.createElement("button");
 
@@ -52,6 +57,7 @@ fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
             
             div.innerHTML = nombreFalla;
             div.classList.add("falla");
+            div.dataset.idFalla = falla.properties.id;
             imagen.src = imagenFalla;
             
             let divValoracion = document.createElement("div");
@@ -87,15 +93,16 @@ fetch('http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON')
         if ((anyoDesde === undefined || anyoHasta === undefined)||(anyoDesde == "" || anyoHasta === "")) {
                
             div.innerHTML = nombreFalla;
-                div.classList.add("falla");
-                imagen.src = imagenFalla;
+            div.classList.add("falla");
+            div.dataset.idFalla = falla.properties.id;
+            imagen.src = imagenFalla;
                 
-        let boton = document.createElement("button");
+    let boton = document.createElement("button");
         
-        boton.innerText="Mostrar Ubicación";
+    boton.innerText="Mostrar Ubicación";
         
-        let formulario = document.createElement("form");
-        formulario.method = "POST";
+    let formulario = document.createElement("form");
+    formulario.method = "POST";
     
 
     let p = document.createElement("p");
@@ -335,8 +342,24 @@ function comparar(a,b){return a - b}
 
 function establecerPuntuacion() {
     
-this.classList.add("pulsado");
-console.log(this.value);
+this.classList.toggle("pulsado");
+let fallaPadre = this.parentElement.parentElement.parentElement;
+let idFallaMongo = fallaPadre.dataset.idFalla;
+
+
+var url = '/puntuaciones';
+var data = {idFalla: idFallaMongo, ip: "",puntuacion: this.value};
+
+fetch(url, {
+  method: 'POST', // or 'PUT'
+  body: JSON.stringify(data), // data can be `string` or {object}!
+  headers:{
+    'Content-Type': 'application/json'
+  }
+}).then(res => res.json())
+.catch(error => console.error('Error:', error))
+.then(response => console.log('Success:', response));
+
 
 }
 
