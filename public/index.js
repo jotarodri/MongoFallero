@@ -349,7 +349,7 @@ let idFallaMongo = fallaPadre.dataset.idFalla;
 
 var url = '/puntuaciones';
 var data = {idFalla: idFallaMongo, ip: "",puntuacion: this.value};
-
+cogerTodoMongo();
 fetch(url, {
   method: 'POST', // or 'PUT'
   body: JSON.stringify(data), // data can be `string` or {object}!
@@ -360,6 +360,21 @@ fetch(url, {
 .catch(error => console.error('Error:', error))
 .then(response => console.log('Success:', response));
 
+
+}
+function cogerTodoMongo() {
+
+    var url = '/puntuaciones';
+   
+    fetch(url, {
+      method: 'GET', // or 'PUT'
+      
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success:', response));
 
 }
 
@@ -406,9 +421,6 @@ function init() {
         }
 
     })
-
-    
-    
 
    //buscarResultados();
 

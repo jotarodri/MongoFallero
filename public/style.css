@@ -33,7 +33,7 @@ alerta {
 
 img {
   width: 350px;
-  height: 400px;
+  height: 375px;
   margin-top: 5%; }
 
 select {
@@ -42,7 +42,9 @@ select {
 
 #form {
   width: 250px;
-  margin: 0 auto;
+  /* margin: 0 auto;
+  */
+  margin-bottom: 15%;
   height: 50px; }
   #form p {
     text-align: center; }
