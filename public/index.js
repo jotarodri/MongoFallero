@@ -348,8 +348,8 @@ let idFallaMongo = fallaPadre.dataset.idFalla;
 
 
 var url = '/puntuaciones';
-var data = {idFalla: idFallaMongo, ip: "",puntuacion: this.value};
-cogerTodoMongo();
+var data = {idFalla: idFallaMongo, ip: '',puntuacion: this.value};
+//cogerTodoMongo();
 fetch(url, {
   method: 'POST', // or 'PUT'
   body: JSON.stringify(data), // data can be `string` or {object}!
@@ -363,7 +363,16 @@ fetch(url, {
 
 }
 function cogerTodoMongo() {
-
+   
+   /* app.post('/api/v1',(req,res) =>{
+        ConnectTelnet();
+      
+        var ip = req.connection.remoteAddress;
+      
+      
+      console.log(ip);
+      })
+*/
     var url = '/puntuaciones';
    
     fetch(url, {
@@ -424,7 +433,22 @@ function init() {
 
    //buscarResultados();
 
-   //document.querySelector('input[type="button"]').addEventListener("click",buscarResultados);
+   //document.querySelector('borrador').addEventListener("click",borrarTodo);
+}
+
+function borrarTodo() {
+    var url = '/puntuaciones';
+   
+    fetch(url, {
+      method: 'GET', // or 'PUT'
+      
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success:', response));
+
 }
 
 window.onload = init;
