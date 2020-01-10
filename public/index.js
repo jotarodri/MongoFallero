@@ -364,15 +364,7 @@ fetch(url, {
 }
 function cogerTodoMongo() {
    
-   /* app.post('/api/v1',(req,res) =>{
-        ConnectTelnet();
-      
-        var ip = req.connection.remoteAddress;
-      
-      
-      console.log(ip);
-      })
-*/
+ 
     var url = '/puntuaciones';
    
     fetch(url, {
@@ -433,7 +425,7 @@ function init() {
 
    //buscarResultados();
 
-   //document.querySelector('borrador').addEventListener("click",borrarTodo);
+   document.querySelector('.mongo').addEventListener("click",cogerTodoMongo);
 }
 
 function borrarTodo() {
