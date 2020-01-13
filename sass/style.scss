@@ -1,38 +1,293 @@
+$colorFalla:'';
+$contenedorFalla_Color:'';
+$logo_src: '';
+$menu_src:'';
+
+// chtulhu
+// evilCorp
+$company: evilCorp;
+
+@font-face {
+  font-family: starbucks;
+  src: url("../fuentes/Santana-BlackCondensed.ttf");
+  }
+
+@if ($company == chtulhu) {
+  $colorFalla:#327337;
+  $colorBoton: lighgrey;
+  $logo_src: "../imgs/cthulhu.jpg";
+  $menu_src: "../imgs/menuH.png"
+} @else if ($company == evilCorp) {
+  $colorFalla: #bf214b;
+  $colorBoton: #2079b0;
+  $logo_src: "../imgs/evilcorp.png";
+  $menu_src: "../imgs/menuH.png";
+}
+
+//@media (max-width: 500px) {
+  @media only screen and (max-width: 600px) {
+ 
+  header {
+    background-color: white;
+    position:fixed; 
+    top:0;
+    width: 100%;
+    #cabecera{
+      display: flex;
+      flex-direction: row;
+      #logo{
+        height: 200px;
+        width: 200px;
+        background-image: url($logo_src);
+        background-size: 100% 100%;
+        margin-left: 4%;
+  
+      }
+      #titulo{
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 12%;
+        font-family: "starbucks";
+        font-size: 50px;
+
+      }
+      #hamburguesa{
+        height: 100px;
+        width: 100px;
+        background-image: url($menu_src);
+        background-size: 100% 100%;
+        margin-left: 15%;
+        margin-top: 5%;
+      }
+    }
+    
+   
+  }
+  
+  body{
+    background-image: url("../imgs/fondoNegro.jpg");
+}
+
+.escondido{
+  display: none;
+}
+
+alerta{
+  color: red;
+  visibility: hidden;
+}
+
+.visible{
+
+  visibility: visible;
+}
+#resultado{
+
+background-image: url("../imgs/fondoNegro.jpg");
+margin-top: 50%;
+margin-left: 23%;
+display: grid;
+grid-template-columns: repeat(1,600px);
+width: 500px;
+grid-gap: 100px;
+
+.falla{
+    
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 3px solid black;
+  box-shadow: 10px 10px 5px 6px rgba(0,0,0,0.75);
+  background-color: $colorFalla;
+  text-align: center;
+  height: 700px;
+  width: 500px;
+  color: white;
+  img{
+
+    width: 350px;
+    height: 375 px;
+    margin-top: 5%;
+
+  }
+
+  }
+
+}
+
+#form {
+  width: 250px;
+  margin: 0 auto;
+  margin-bottom: 15%;
+  height: 50px;
+  
+  p {
+
+    text-align: center;
+    
+  }
+  label {
+    font-size: 20px;
+    color: grey;
+   
+  }
+ 
+
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+.pulsado,
+.pulsado ~ label{
+  color: orange;
+}
+
+.fixed{
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+}
+//}
+  }
+//-------------------------------
+//@media (min-width: 500px) {
 :root {
   --color-inactivo: #5f5050;
   --color-hover: lightcyan;
 }
+header {
+  background-color: white;
+ /* position:fixed; 
+  top:0;*/
+  width: 100%;
 
+  #cabecera{
+    display: flex;
+    flex-direction: row;
+    #logo{
+      height: 200px;
+      width: 200px;
+      background-image: url($logo_src);
+      background-size: 100% 100%;
+      margin-left: 4%;
+
+    }
+    #titulo{
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      margin-left: 24%;
+      font-family: "starbucks";
+      font-size: 50px;
+
+    }
+   
+  }
+  #filtrosFalla{
+    form{
+      margin-left: 2%;
+
+      display: flex;
+      flex-direction: row;
+      
+    
+        p{
+          margin-left: 1%;
+          margin-top: 1%;
+        }
+     
+
+      select{
+
+        width: 20%;
+        margin-top: 0.75%;
+        margin-left: 1%;
+  
+      }
+      h3{
+        margin-left: 3%;
+      }
+      
+    }
+    
+  }
+  
+ 
+}
 
 body{
-    background-color: lightcyan;
+    background-image: url("../imgs/fondoNegro.jpg");
 }
-
-
 
 #resultado{
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(3,455px);
-    grid-gap: 90px;
-    
-}
 
-.falla{
-    
+  background-image: url("../imgs/fondoNegro.jpg");
+  margin-top: 5%;
+  margin-left: 7%;
+  display: grid;
+  grid-template-columns: repeat(3,455px); 
+   width: 500px;
+  grid-gap: 100px;
+  
+  .falla{
+      
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 10%;
     border: 3px solid black;
     box-shadow: 10px 10px 5px 6px rgba(0,0,0,0.75);
-    background-color: lightcoral;
+    background-color: $colorFalla;
     text-align: center;
-    height: 580px;
-
+    height: 600px;
+    width: 500px;
+color: white;
+p{
+  color: black;
+  height: 40px;
+ // margin-right: 10%;
+ position: relative;
+ bottom: 4%;
+}p::before{
+  content:"nóicarolav uT";
+  font-size: 17px;
 }
+   
+    img{
+  
+      width: 350px;
+      height: 395px;
+      margin-top: 5%;
+  
+    }
+  
+    }
+  
+  }
+
+
 
 button{
- margin-bottom: 15%;
+ //margin-bottom: 15%;
+position: relative;
+top: 20%;
+ //background-image: -webkit-linear-gradient(top, #eb94d0, #2079b0);
+ background-image: -webkit-linear-gradient(top, $colorFalla, lightgrey);
+height: 40px;
+-webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
 }
 
 alerta{
@@ -61,8 +316,8 @@ select{
 
 #form {
   width: 250px;
- /* margin: 0 auto;
- */ margin-bottom: 15%;
+margin: 0 auto;
+margin-bottom: 15%;
   height: 50px;
   
   p {
@@ -75,6 +330,7 @@ select{
     color: grey;
    
   }
+ 
 
 }
 
@@ -92,3 +348,36 @@ label:hover ~ label {
 .pulsado ~ label{
   color: orange;
 }
+
+#fullScreen{
+
+height: 550px;
+width: 575px;
+//background-color: lightgrey;
+position: fixed;
+z-index: 79;
+top: 25%;
+left: 35%;
+  
+.cerrarMapa{
+  height: 40px;
+  width: 50px;
+  background-image: url("../imgs/cerrar.png");
+  background-size: 100% 100%;
+  float: left;
+  position: fixed;
+  top: 26%;
+  left: 62%;
+}
+}
+#map {
+  z-index: 80;
+  width: 450px;
+  height: 450px;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+//}

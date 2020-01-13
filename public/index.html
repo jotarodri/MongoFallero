@@ -2,23 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="application/javascript" src="index.js"></script>    
+    <script type="application/javascript" src="/js/index.js"></script>   
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.0/proj4.js"> </script>
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
     <style>
-      @import url("style.css");
+      @import url("/css/style.css");
     </style>
 </head>
 <body>
-    <button class="mongo">ConsoleLog de Mongo</button>
-    <h1>Fallas de la ciudad de Valencia</h1>
-    <div class="buscar">
-        <form class="busqueda">
-            <h2> Elige el tipo de falla </h2>
-                <input type="radio" value="Principal" class="radioB" name="1">   Principal
-                <br>
-                <br>
-                <input type="radio" value="Infantil" class="radioB" name="1">   Infantil
-                <br>
-                <br>
+    
+    
+    <header>
+        
+        <div id="cabecera">
+            <div id="logo"></div>
+            <h2 id="titulo"> Starbred Coffe</h2>
+            <div id="hamburguesa"></div>
+       
+        </div>
+
+        <div id="filtrosFalla" class = "escondido"> 
+
+            <form class="busqueda">
+
+                
+                    <h3>Elige el tipo de falla</h3>
+                    <p><input type="radio" value="Principal" class="radioB" name="1">Principal </p>
+                   
+                    <p><input type="radio" value="Infantil" class="radioB" name="1">Infantil</p>
+             
+
+         
+                    <h3>   Elige la seccion</h3>
+                    <select value="Seccion" class="seccionFalla">
+
+                    <option>Elige una sección</option>
+                    
+                    </select>
+
+           
+          
+
+                   <p> 
+                    Desde  <input type="text" id="desde">
+                    Hasta  <input type="text" id="hasta">
+                  <alerta>El año de fundación debe ser menor que el año actual!</alerta>
+                    </p>
+
+            
+
+
+            </form>
+
+
+        </div>
+        <br>
+    </header>
+    <div id="resultado">
+    </div>
+        
+    
+
+
+    <!--
 
             <h2>Sección</h2>
             <select value="Seccion" class="seccionFalla">
@@ -41,14 +88,14 @@
             </p>
                
       
-            <!--<input type="button" value="Mostrar Fallas" class="botonBuscar">-->
+         <input type="button" value="Mostrar Fallas" class="botonBuscar">
             
         </form>
     </div>
     <div id="resultado">
     </div>
 
-<!--
+
 <form action="/puntuaciones/" method="POST">
 
 <input type="submit" value="Enviar"> 
