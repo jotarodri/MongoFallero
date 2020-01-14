@@ -483,7 +483,7 @@ for (let i = 0; i < todoMongo.length; i++) {
         
 }
 
-console.log(media);
+//console.log(media);
 
 
 }

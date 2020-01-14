@@ -1,268 +1,143 @@
 @charset "UTF-8";
 @font-face {
   font-family: starbucks;
-  src: url("../fuentes/Santana-BlackCondensed.ttf");
-}
-@media only screen and (max-width: 600px) {
-  header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
+  src: url("../fuentes/Santana-BlackCondensed.ttf"); }
+:root {
+  --color-inactivo: #5f5050;
+  --color-hover: lightcyan; }
+
+header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 20%; }
   header #cabecera {
     display: flex;
-    flex-direction: row;
-  }
-  header #cabecera #logo {
-    height: 200px;
-    width: 200px;
-    background-image: url("../imgs/evilcorp.png");
-    background-size: 100% 100%;
-    margin-left: 4%;
-  }
-  header #cabecera #titulo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 12%;
-    font-family: "starbucks";
-    font-size: 50px;
-  }
-  header #cabecera #hamburguesa {
+    flex-direction: row; }
+    header #cabecera #logo {
+      height: 100px;
+      width: 100px;
+      background-image: url("../imgs/cthulhu.jpg");
+      background-size: 100% 100%;
+      margin-left: 0%; }
+    header #cabecera #titulo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      margin-left: 1%;
+      font-family: "starbucks";
+      font-size: 40px; }
+    header #cabecera #hamburguesa {
+      height: 50px;
+      width: 50px;
+      background-image: url("../imgs/menuH.png");
+      visibility: visible;
+      margin-left: 10%;
+      margin-top: 6%; }
+  header #filtrosFalla {
     height: 100px;
-    width: 100px;
-    background-image: url("../imgs/menuH.png");
-    background-size: 100% 100%;
-    margin-left: 15%;
-    margin-top: 5%;
-  }
+    background-color: white; }
+    header #filtrosFalla form {
+      margin-left: 2%;
+      display: flex;
+      flex-direction: row;
+      width: 50px;
+      font-size: 10px; }
+      header #filtrosFalla form p {
+        margin-left: 30px;
+        margin-top: 1%; }
+      header #filtrosFalla form select {
+        width: 40px;
+        margin-top: 1%;
+        margin-left: 20px; }
+      header #filtrosFalla form h3 {
+        visibility: hidden; }
 
-  body {
-    background-image: url("../imgs/fondoNegro.jpg");
-  }
+body {
+  background-image: url("../imgs/fondoNegro.jpg"); }
 
-  .escondido {
-    display: none;
-  }
-
-  alerta {
-    color: red;
-    visibility: hidden;
-  }
-
-  .visible {
-    visibility: visible;
-  }
-
-  #resultado {
-    background-image: url("../imgs/fondoNegro.jpg");
-    margin-top: 50%;
-    margin-left: 23%;
-    display: grid;
-    grid-template-columns: repeat(1, 600px);
-    width: 500px;
-    grid-gap: 100px;
-  }
+#resultado {
+  background-image: url("../imgs/fondoNegro.jpg");
+  margin-top: 49%;
+  margin-left: 0.2%;
+  display: grid;
+  grid-template-columns: repeat(1, 425px);
+  width: 200px;
+  grid-gap: 100px; }
   #resultado .falla {
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     border: 3px solid black;
     box-shadow: 10px 10px 5px 6px rgba(0, 0, 0, 0.75);
-    background-color: #bf214b;
+    background-color: #327337;
     text-align: center;
-    height: 700px;
-    width: 500px;
-    color: white;
-  }
-  #resultado .falla img {
-    width: 350px;
-    height: 375 px;
-    margin-top: 5%;
-  }
+    height: 500px;
+    margin-left: 3%;
+    width: 450px;
+    color: white; }
+    #resultado .falla p {
+      color: black;
+      height: 40px;
+      position: relative;
+      bottom: 4%; }
+    #resultado .falla p::before {
+      content: "nóicarolav uT";
+      font-size: 17px; }
+    #resultado .falla img {
+      width: 350px;
+      height: 305px;
+      margin-top: 5%; }
 
-  #form {
-    width: 250px;
-    margin: 0 auto;
-    margin-bottom: 15%;
-    height: 50px;
-  }
-  #form p {
-    text-align: center;
-  }
-  #form label {
-    font-size: 20px;
-    color: grey;
-  }
-
-  .clasificacion {
-    direction: rtl;
-    unicode-bidi: bidi-override;
-  }
-
-  label:hover,
-label:hover ~ label {
-    color: orange;
-  }
-
-  .pulsado,
-.pulsado ~ label {
-    color: orange;
-  }
-
-  .fixed {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-}
-:root {
-  --color-inactivo: #5f5050;
-  --color-hover: lightcyan;
-}
-
-header {
-  background-color: white;
-  /* position:fixed; 
-   top:0;*/
-  width: 100%;
-}
-header #cabecera {
-  display: flex;
-  flex-direction: row;
-}
-header #cabecera #logo {
-  height: 200px;
-  width: 200px;
-  background-image: url("../imgs/evilcorp.png");
-  background-size: 100% 100%;
-  margin-left: 4%;
-}
-header #cabecera #titulo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
-  margin-left: 24%;
-  font-family: "starbucks";
-  font-size: 50px;
-}
-header #filtrosFalla form {
-  margin-left: 2%;
-  display: flex;
-  flex-direction: row;
-}
-header #filtrosFalla form p {
-  margin-left: 1%;
-  margin-top: 1%;
-}
-header #filtrosFalla form select {
-  width: 20%;
-  margin-top: 0.75%;
-  margin-left: 1%;
-}
-header #filtrosFalla form h3 {
-  margin-left: 3%;
-}
-
-body {
-  background-image: url("../imgs/fondoNegro.jpg");
-}
-
-#resultado {
-  background-image: url("../imgs/fondoNegro.jpg");
-  margin-top: 5%;
-  margin-left: 7%;
-  display: grid;
-  grid-template-columns: repeat(3, 455px);
-  width: 500px;
-  grid-gap: 100px;
-}
-#resultado .falla {
-  font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-  border: 3px solid black;
-  box-shadow: 10px 10px 5px 6px rgba(0, 0, 0, 0.75);
-  background-color: #bf214b;
-  text-align: center;
-  height: 600px;
-  width: 500px;
-  color: white;
-}
-#resultado .falla p {
-  color: black;
-  height: 40px;
-  position: relative;
-  bottom: 4%;
-}
-#resultado .falla p::before {
-  content: "nóicarolav uT";
-  font-size: 17px;
-}
-#resultado .falla img {
-  width: 350px;
-  height: 395px;
-  margin-top: 5%;
-}
+.escondido {
+  display: none; }
 
 button {
   position: relative;
-  top: 20%;
-  background-image: -webkit-linear-gradient(top, #bf214b, lightgrey);
+  background-image: -webkit-linear-gradient(top, #327337, lightgrey);
   height: 40px;
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
-  border-radius: 28px;
-}
+  border-radius: 28px; }
 
 alerta {
   color: red;
-  visibility: hidden;
-}
+  visibility: hidden; }
 
 .visible {
-  visibility: visible;
-}
+  visibility: visible; }
 
 img {
-  width: 350px;
-  height: 375 px;
-  margin-top: 5%;
-}
+  margin-top: 5%; }
 
 select {
   width: 100%;
-  height: 30px;
-}
+  height: 30px; }
 
 #form {
   width: 250px;
   margin: 0 auto;
   margin-bottom: 15%;
-  height: 50px;
-}
-#form p {
-  text-align: center;
-}
-#form label {
-  font-size: 20px;
-  color: grey;
-}
+  height: 50px; }
+  #form p {
+    text-align: center; }
+  #form label {
+    font-size: 20px;
+    color: grey; }
 
 .clasificacion {
   direction: rtl;
-  unicode-bidi: bidi-override;
-}
+  unicode-bidi: bidi-override; }
 
 label:hover,
 label:hover ~ label {
-  color: orange;
-}
+  color: orange; }
 
 .pulsado,
 .pulsado ~ label {
-  color: orange;
-}
+  color: orange; }
 
 #fullScreen {
   height: 550px;
@@ -270,18 +145,16 @@ label:hover ~ label {
   position: fixed;
   z-index: 79;
   top: 25%;
-  left: 35%;
-}
-#fullScreen .cerrarMapa {
-  height: 40px;
-  width: 50px;
-  background-image: url("../imgs/cerrar.png");
-  background-size: 100% 100%;
-  float: left;
-  position: fixed;
-  top: 26%;
-  left: 62%;
-}
+  left: 35%; }
+  #fullScreen .cerrarMapa {
+    height: 40px;
+    width: 50px;
+    background-image: url("../imgs/cerrar.png");
+    background-size: 100% 100%;
+    float: left;
+    position: fixed;
+    top: 26%;
+    left: 65%; }
 
 #map {
   z-index: 80;
@@ -291,7 +164,157 @@ label:hover ~ label {
   top: 55%;
   left: 50%;
   /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
+  transform: translate(-50%, -50%); }
+
+@media (min-width: 500px) {
+  header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 25%; }
+    header #cabecera {
+      display: flex;
+      flex-direction: row; }
+      header #cabecera #logo {
+        height: 100px;
+        width: 100px;
+        background-image: url("../imgs/cthulhu.jpg");
+        background-size: 100% 100%;
+        margin-left: 4%; }
+      header #cabecera #titulo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        margin-left: 24%;
+        font-family: "starbucks";
+        font-size: 40px; }
+      header #cabecera #hamburguesa {
+        display: none; }
+    header #filtrosFalla {
+      visibility: visible; }
+      header #filtrosFalla form {
+        width: 90%;
+        font-size: 20px; }
+        header #filtrosFalla form p {
+          margin-left: 1%;
+          margin-top: 1%; }
+        header #filtrosFalla form select {
+          width: 20%;
+          margin-top: 2%;
+          margin-left: 1%; }
+        header #filtrosFalla form h3 {
+          visibility: visible;
+          margin-left: 50px; }
+        header #filtrosFalla form input {
+          margin-top: 2%; }
+
+  body {
+    background-image: url("../imgs/fondoNegro.jpg"); }
+
+  #resultado {
+    background-image: url("../imgs/fondoNegro.jpg");
+    margin-top: 15%;
+    margin-left: 0.2%;
+    display: grid;
+    grid-template-columns: repeat(3, 425px);
+    width: 200px;
+    grid-gap: 100px; }
+    #resultado .falla {
+      font-size: 25px;
+      font-family: Arial, Helvetica, sans-serif;
+      border: 3px solid black;
+      box-shadow: 10px 10px 5px 6px rgba(0, 0, 0, 0.75);
+      background-color: #327337;
+      text-align: center;
+      height: 500px;
+      width: 500px;
+      color: white; }
+      #resultado .falla p {
+        color: black;
+        height: 40px;
+        position: relative;
+        bottom: 4%; }
+      #resultado .falla p::before {
+        content: "nóicarolav uT";
+        font-size: 17px; }
+      #resultado .falla img {
+        width: 350px;
+        height: 305px;
+        margin-top: 5%; }
+
+  button {
+    position: relative;
+    background-image: -webkit-linear-gradient(top, #327337, lightgrey);
+    height: 40px;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px; }
+
+  alerta {
+    color: red;
+    visibility: hidden; }
+
+  .visible {
+    visibility: visible; }
+
+  img {
+    margin-top: 5%; }
+
+  select {
+    width: 100%;
+    height: 30px; }
+
+  #form {
+    width: 250px;
+    margin: 0 auto;
+    margin-bottom: 15%;
+    height: 50px; }
+    #form p {
+      text-align: center; }
+    #form label {
+      font-size: 20px;
+      color: grey; }
+
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override; }
+
+  label:hover,
+  label:hover ~ label {
+    color: orange; }
+
+  .pulsado,
+  .pulsado ~ label {
+    color: orange; }
+
+  #fullScreen {
+    height: 550px;
+    width: 575px;
+    position: fixed;
+    z-index: 79;
+    top: 25%;
+    left: 35%; }
+    #fullScreen .cerrarMapa {
+      height: 40px;
+      width: 50px;
+      background-image: url("../imgs/cerrar.png");
+      background-size: 100% 100%;
+      float: left;
+      position: fixed;
+      top: 26%;
+      left: 65%; }
+
+  #map {
+    z-index: 80;
+    width: 450px;
+    height: 450px;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%); } }
 
 /*# sourceMappingURL=style.css.map */
